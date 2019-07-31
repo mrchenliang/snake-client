@@ -1,4 +1,4 @@
-let connnection;
+let conn;
 
 const handleUserInput = function(data) {
   if (data === '\u0003') {
@@ -12,11 +12,13 @@ const handleUserInput = function(data) {
     conn.write('Move: down');
   } else if (data === 'd') {
     conn.write('Move: right');
+  } else if (data === 'f') {
+    conn.write('Say: winner!');
   }
 }
 
-const setupInput = function(conn) {
-  connnection = conn;
+const setupInput = function(connection) {
+  conn = connection;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
